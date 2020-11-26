@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Hotdrinks from "./Components/Hotdrinks/Hotdrinks";
 
 function App() {
+  const showDetailsHandler = (drink) => {
+    let msg = drink.actions.reduce((accumulator, currentValue, index) => {
+      let n = index + 1;
+      return accumulator + n + ". " + currentValue + "\n";
+    }, "Steps:\n");
+    alert(msg);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1 className="App-header">HOTDRINKS MACHINE</h1>
+      <Hotdrinks showDetailsHandler={showDetailsHandler} />
     </div>
   );
 }
